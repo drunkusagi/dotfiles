@@ -1,0 +1,103 @@
+{
+    "input": {
+        "blocklist": [],
+        "crystalizer#0": {
+            "band0": {
+                "bypass": false,
+                "intensity": -20.0,
+                "mute": false
+            },
+            "band1": {
+                "bypass": false,
+                "intensity": -9.0,
+                "mute": false
+            },
+            "band10": {
+                "bypass": false,
+                "intensity": 6.0,
+                "mute": false
+            },
+            "band11": {
+                "bypass": false,
+                "intensity": -11.0,
+                "mute": false
+            },
+            "band12": {
+                "bypass": false,
+                "intensity": -12.0,
+                "mute": false
+            },
+            "band2": {
+                "bypass": false,
+                "intensity": -2.0,
+                "mute": false
+            },
+            "band3": {
+                "bypass": false,
+                "intensity": 5.0,
+                "mute": false
+            },
+            "band4": {
+                "bypass": false,
+                "intensity": 4.0,
+                "mute": false
+            },
+            "band5": {
+                "bypass": false,
+                "intensity": 15.0,
+                "mute": false
+            },
+            "band6": {
+                "bypass": false,
+                "intensity": 8.0,
+                "mute": false
+            },
+            "band7": {
+                "bypass": false,
+                "intensity": -7.0,
+                "mute": false
+            },
+            "band8": {
+                "bypass": false,
+                "intensity": -8.0,
+                "mute": false
+            },
+            "band9": {
+                "bypass": false,
+                "intensity": 6.0,
+                "mute": false
+            },
+            "bypass": false,
+            "input-gain": -0.2,
+            "output-gain": 0.2
+        },
+        "delay#0": {
+            "bypass": true,
+            "dry-l": -62.50000000000028,
+            "dry-r": -100.0,
+            "input-gain": 0.0,
+            "invert-phase-l": true,
+            "invert-phase-r": true,
+            "output-gain": 0.0,
+            "time-l": 1.812575340270996,
+            "time-r": 59.087711334228516,
+            "wet-l": 3.4000000000000017,
+            "wet-r": 0.0
+        },
+        "plugins_order": [
+            "crystalizer#0",
+            "delay#0",
+            "rnnoise#0"
+        ],
+        "rnnoise#0": {
+            "bypass": false,
+            "enable-vad": true,
+            "input-gain": -7.0,
+            "model-name": "lq",
+            "output-gain": 0.0,
+            "release": 22.41,
+            "vad-thres": 81.0,
+            "wet": 0.46000000000000024
+        }
+    }
+}
