@@ -16,6 +16,5 @@ else
   NEXT_WP_NUM=1
 fi
 
-hyprctl hyprpaper unload "$ACTIVE_WP_PATH"
 hyprctl hyprpaper preload "$WP_DIR/$NEXT_WP_NUM.jpg"
 hyprctl hyprpaper wallpaper eDP-1,"$WP_DIR/$NEXT_WP_NUM.jpg"

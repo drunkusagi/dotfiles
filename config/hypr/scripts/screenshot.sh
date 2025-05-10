@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-set -e
-
 [ $# -eq 0 ] && exit 1
 
 ARGS=$(getopt --options c,f,o: --longoptions copy,full,output: -- "$@")
@@ -40,11 +38,25 @@ if [ -z "$OUT_FILE" ]; then
   OUT_FILE=$SS_DIR/$(date +"Screenshot_%Y-%m-%d_%H.%M.%S.png")
 fi
 
+# freeze the screen
+hyprpicker -rz &
+sleep 0.2
+HYPRPICKER_PID=$!
+
 if [ "$FULL" ]; then
   grim -t png "$OUT_FILE"
 else
   grim -t png -g "$(slurp)" "$OUT_FILE"
 fi
+
+[ $? -ne 0 ] && {
+  kill $HYPRPICKER_PID
+  rm -f "$OUT_FILE"
+  notify-send "Screenshot cancelled" -a "Screenshot" -u normal
+  exit 1
+}
+
+kill $HYPRPICKER_PID
 
 if [ "$COPY_SS" ]; then
   wl-copy <"$OUT_FILE"
