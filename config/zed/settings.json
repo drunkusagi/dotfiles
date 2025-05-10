@@ -1,5 +1,7 @@
 {
+  "icon_theme": "Catppuccin Macchiato",
   "assistant": {
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4o"
@@ -10,11 +12,14 @@
   "tab_size": 2,
   "ui_font_size": 18,
   "buffer_font_size": 16,
-  "buffer_font_weight": 800,
+  "buffer_font_weight": 600,
   "buffer_font_family": "ComicShannsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "scroll_beyond_last_line": "off",
   "scrollbar": {
-    "show": "auto"
+    "show": "never"
   },
   "confirm_quit": true,
   "features": {
@@ -23,7 +28,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Mocha",
+    "light": "Catppuccin Macchiato",
     "dark": "Catppuccin Mocha"
   },
   "terminal": {
@@ -59,5 +64,11 @@
     "indent_size": 10,
     "auto_reveal_entries": true,
     "auto_fold_dirs": true
+  },
+  "idle": {
+    "timeout": 900,
+    "state": "Zzz...",
+    "details": "In Zed",
+    "action": "change_activity"
   }
 }

@@ -5,16 +5,14 @@
       "\\": "vim::InsertBefore",
       "|": "vim::ToggleVisualLine",
       "space e": "project_panel::ToggleFocus",
-      "space e e": "workspace::ToggleLeftDock",
+      "space E": "workspace::ToggleLeftDock",
       "space x": "pane::CloseActiveItem",
       "space w": "workspace::ActivateNextPane",
       "space s": [
         "workspace::SendKeystrokes",
         "ctrl-s l ctrl-99 space w space x space w"
       ],
-      "ctrl-x": "editor::Cut",
       "ctrl-q": "workspace::ToggleBottomDock",
-      "ctrl-d": "editor::SelectNext",
       ";": "command_palette::Toggle",
       "ctrl-s h": "pane::SplitLeft",
       "ctrl-s j": "pane::SplitUp",
@@ -25,43 +23,32 @@
   {
     "context": "Editor && !menu && vim_mode == insert",
     "bindings": {
-      "ctrl-x": "editor::Cut",
-      "ctrl-d": "editor::SelectNext",
-      "ctrl-s": ["workspace::SendKeystrokes", "escape : w enter"]
+      "ctrl-s": null
     }
   },
   {
     "context": "Editor && !menu && vim_mode == normal",
     "bindings": {
-      "y": "vim::Redo",
       "ctrl-m": "editor::MoveToEnclosingBracket",
-      "ctrl-alt-[": "editor::Fold",
-      "ctrl-alt-]": "editor::UnfoldLines"
+      "shift-l": "workspace::ActivateNextPane",
+      "shift-h": "workspace::ActivatePreviousPane",
+      "space f": "buffer_search::Deploy",
+      "alt-r": "workspace::ToggleRightDock"
     }
   },
   {
-    "context": "VimControl && !menu && vim_mode != operator",
+    "context": "Editor && !menu && vim_mode == visual",
     "bindings": {
-      "w": "vim::NextSubwordStart",
-      "b": "vim::PreviousSubwordStart",
-      "e": "vim::NextSubwordEnd",
-      "n": "vim::PreviousSubwordEnd"
+      "shift-s": ["vim::PushAddSurrounds", {}]
     }
   },
   {
-    // bindings from vscode
-    "context": "Editor",
+    "context": "Editor && !menu && !VimControl",
     "bindings": {
       "ctrl-[": "editor::Outdent",
       "ctrl-]": "editor::Indent",
       "ctrl-alt-up": "editor::AddSelectionAbove",
       "ctrl-alt-down": "editor::AddSelectionBelow",
-      "ctrl-d": [
-        "editor::SelectNext",
-        {
-          "replace_newest": false
-        }
-      ],
       "ctrl-shift-l": "editor::SelectAllMatches",
       "ctrl-k ctrl-i": "editor::Hover",
       "ctrl-/": [
@@ -142,17 +129,6 @@
       "ctrl-?": "assistant::ToggleFocus",
       "ctrl-alt-s": "workspace::SaveAll",
       "ctrl-k m": "language_selector::Toggle"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == visual",
-    "bindings": {
-      "shift-s": [
-        "vim::PushOperator",
-        {
-          "AddSurrounds": {}
-        }
-      ]
     }
   },
   {
