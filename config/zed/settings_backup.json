@@ -1,10 +1,10 @@
 {
   "icon_theme": "Catppuccin Macchiato",
-  "agent": {
-    "default_profile": "ask",
+  "assistant": {
+    "default_profile": "write",
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },

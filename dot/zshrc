@@ -4,18 +4,9 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 #ZSH_THEME="robbyrussell"
-plugins=(golang git arduino-cli docker zsh-vi-mode)
+plugins=(golang git arduino-cli docker)
 
 source $ZSH/oh-my-zsh.sh
-
-# aliases
-alias ls='exa --color=auto --icons=auto'
-alias cd='z'
-alias :q='exit'
-alias :l='clear'
-alias d='docker'
-alias code='nvim'
-
 
 DATA_DIR=$([ -d "$XDG_DATA_HOME" ] && printf "$XDG_DATA_HOME" || printf "$HOME/.local/share")
 
@@ -27,17 +18,22 @@ export NVM_DIR="$HOME/.nvm"
 if [ ! -d "$NVM_DIR" ]; then
   export NVM_DIR="$DATA_DIR/nvm"
   [ ! -d "$NVM_DIR" ] && mkdir -p "$NVM_DIR"
-  source /usr/share/nvm/nvm.sh
-  source /usr/share/nvm/bash_completion
+  [ -d "/usr/share/nvm" ] && {
+    source /usr/share/nvm/nvm.sh
+    source /usr/share/nvm/bash_completion
+  }
 fi
 
 export GOPATH="$DATA_DIR/go"
 export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin
+export MANPAGER='nvim +Man!'
 
 # make sure if command is exists
 (($+commands[fzf])) && source <(fzf --zsh)
 (($+commands[zoxide])) && eval "$(zoxide init zsh)"
 (($+commands[oh-my-posh])) && eval "$(oh-my-posh init zsh --config $HOME/.omp.json)"
 
-# load functions
-[ -f "$HOME/.functions.sh" ] && source "$HOME/.functions.sh"
+# load functions and aliases
+[ -x "$HOME/.functions.sh" ] && source "$HOME/.functions.sh"
+[ -x "$HOME/.aliases.sh" ] && source "$HOME/.aliases.sh"
+

@@ -6,7 +6,7 @@ FONT_INSTALL_DIR="$HOME/.fonts/me"
 REPO_URL="https://github.com/ryanoasis/nerd-fonts"
 TEMP_DIR="/tmp"
 LATEST_TAG_NAME="$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq .tag_name -r)"
-FONTS_NAME=(ComicShannsMono JetBrainsMono)
+FONTS_NAME=(ComicShannsMono JetBrainsMono ZedMono)
 
 [ ! -d "$FONT_INSTALL_DIR" ] && mkdir -p "$FONT_INSTALL_DIR"
 
