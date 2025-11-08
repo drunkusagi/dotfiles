@@ -1,0 +1,15 @@
+[Unit]
+Description=HyprPanel A Bar/Panel built for Hyprland
+Documentation=https://hyprpanel.com/
+PartOf=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+After=graphical-session.target
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+ExecStart=/usr/bin/hyprpanel
+
+[Install]
+WantedBy=graphical-session.target
