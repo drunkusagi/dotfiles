@@ -2,7 +2,7 @@
 
 USER_SERVICES=(
   # hyprland services
-  hyprpaper hypridle hyprpolkitagent
+  hyprpanel hyprpaper hypridle hyprpolkitagent
   # audio services
   pipewire pipewire-pulse wireplumber
   # password manager
