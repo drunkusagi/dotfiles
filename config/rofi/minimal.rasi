@@ -1,0 +1,53 @@
+
+/* Flat dark Rofi theme — no stripes, no borders */
+
+* {
+    background-color: #111111;     /* deep uniform dark */
+    text-color:       #e0e0e0;     /* light grey for readability */
+}
+
+/* main window has no border */
+window {
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px;
+    width: 30%;
+    background-color: @background-color;
+}
+
+/* input bar */
+inputbar {
+    border: 0px;
+    padding: 4px 8px;
+}
+
+prompt {
+    text-color: @text-color;
+}
+
+/* list container */
+listview {
+    border: 0px;
+    spacing: 0px;
+    padding: 0px;
+}
+
+/* each item */
+element {
+    background-color: @background-color;
+    text-color: @text-color;
+    padding: 4px 8px;
+}
+
+/* selected item */
+element selected {
+    background-color: #222222;    /* slightly lighter dark for focus */
+    text-color: @text-color;
+}
+
+/* no alternate backgrounds */
+element alternate {
+    background-color: @background-color;
+    text-color: @text-color;
+}
+
