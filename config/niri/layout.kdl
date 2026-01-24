@@ -1,0 +1,48 @@
+layout {
+    gaps 2.5
+
+    struts {
+      top -1
+      bottom 2.5
+    }
+
+    background-color "transparent"
+
+    center-focused-column "always"
+
+    preset-column-widths {
+        proportion 0.35
+        proportion 0.5
+        proportion 0.8
+        proportion 1.0
+
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
+    }
+
+    preset-window-heights {
+        proportion 0.35
+        proportion 0.5
+        proportion 0.8
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off
+
+        width 1.5
+        active-color "#CCCCFF"
+        inactive-color "#333"
+    }
+
+    border {
+        on
+
+        width 2.5
+        active-color    "#CCCCFF"
+        inactive-color  "#535353"
+        urgent-color    "#9b0000"
+    }
+}

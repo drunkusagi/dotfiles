@@ -1,0 +1,4 @@
+google-chrome
+jid-bin
+osu-lazer-bin
+spotify

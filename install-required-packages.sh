@@ -2,52 +2,25 @@
 
 set -e
 
-PACMAN_PKGS=(
-  # display manager, hyprland
-  ly hyprland aquamarine hyprpaper hyprlock hypridle hyprpolkitagent hyprland-protocols hyprutils hyprcursor hyprgraphics hyprsunset hyprlang hyprland-qtutils
-  # xdg desktop portal (file chooser, screen sharing)
-  xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-  # session manager
-  uwsm
-  # brightness control, audio server and control
-  brightnessctl pipewire pipewire-jack pipewire-pulse pipewire-alsa wireplumber pavucontrol playerctl
-  # audio filter and effect
-  easyeffects ardour calf lsp-plugins-lv2 zam-plugins-lv2 mda.lv2 yelp
-  # start menu, notification daemon
-  rofi mako
-  # terminal stuff
-  alacritty tmux fastfetch htop neovim
-  # fonts
-  noto-fonts noto-fonts-cjk noto-fonts-emoji
-  # graphic drivers and utilities
-  intel-gmmlib intel-media-driver libva-intel-driver mesa mesa-utils vulkan-headers vulkan-icd-loader vulkan-intel vulkan-tools
-  # microcode and firmware
-  intel-ucode linux-firmware
-  # network tools
-  networkmanager iwd dhclient
-  # file manager
-  nautilus
-  # shell
-  zsh
-  # other apps
-  discord
-  # compiler, build tools
-  nodejs npm go base-devel cmake
-  # utility packages
-  grim slurp wl-clipboard fzf fd zoxide exa zip 7zip unzip ripgrep wget curl jq wev dnsutils yazi ueberzugpp
-  # media player, media converter
-  mpv ffmpeg imagemagick
-  # kernel
-  linux-zen
-  # bluetooth
-  bluetui bluez
-  # password manager
-  gnome-keyring
-  # other packages
-  gvfs-mtp mtpfs sshfs gvfs-smb xfsprogs git scx-scheds tlp tlpui
+PACKAGES=(
+  7zip alacritty alsa-firmware arch-install-scripts base base-devel bat brightnessctl btop bun calf clang cliphist dhclient discord easyeffects efibootmgr eza fastfetch fd filelight fuzzel fvm fzf git
+  gnome-keyring grub gst-libav gvfs-smb htop intel-gmmlib intel-media-driver intel-ucode iwd jq kitty intel-media-driver linux-firmware linux-zen lsp-plugins-lv2 lutris lvm2 ly matugen mda.lv2
+  mesa-utils mpv neovim networkmanager niri noctalia-shell noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ntfs-3g nushell nvm nvtop open-iscsi openresolv openssh otf-font-awesome pipewire
+  pipewire-alsa pipewire-pulse playerctl polkit-gnome power-profiles-daemon pwvucontrol qbittorrent qpwgraph qt5-multimedia qt5-wayland reflector ripgrep rofi rustup scx-scheds scx-tools sndio sudo swayidle
+  thunar tigervnc tlp tlpui tmux unrar unzip uwsm vulkan-headers vulkan-intel vulkan-mesa-layers vulkan-tools wev wget wireplumber wl-clipboard xdg-desktop-portal-gnome xfsprogs xwayland-satellite yay yelp zam-plugins-lv2 zip
+  zoxide zsh google-chrome jid-bin osu-lazer-bin spotify
 )
 
-AUR_PKGS=(clipman jid-bin spotify google-chrome oh-my-posh-bin)
+setup_cachyos_repo() {
+  local curr_dir
+  curr_dir=$(pwd)
+
+  cd /tmp
+  curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+  tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+  sudo ./cachyos-repo.sh
+  cd "$curr_dir"
+}
 
 disable_debug_flag() {
   echo "Disabling debug flag"
@@ -65,9 +38,7 @@ if ! command -v yay >/dev/null 2>&1; then
   rm -rf yay-bin
 fi
 
-echo "Installing required packages"
-sudo pacman -S --noconfirm "${PACMAN_PKGS[@]}"
-
-echo "Installing required packages (aur)"
 disable_debug_flag
-yes | yay -S --noconfirm "${AUR_PKGS[@]}"
+setup_cachyos_repo
+
+yes | yay -S --noconfirm "${PACKAGES[@]}"
