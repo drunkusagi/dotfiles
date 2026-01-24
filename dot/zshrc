@@ -1,12 +1,9 @@
-(($+commands[fastfetch])) && [ ! "$ZED_TERM" ] && fastfetch
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(golang git arduino-cli docker)
+plugins=(golang git)
 
 ZSH_THEME="fishy"
-source $ZSH/oh-my-zsh.sh
+[ -d "$ZSH" ] && source $ZSH/oh-my-zsh.sh || true
 
 DATA_DIR=$([ -d "$XDG_DATA_HOME" ] && printf "$XDG_DATA_HOME" || printf "$HOME/.local/share")
 
@@ -25,16 +22,15 @@ if [ ! -d "$NVM_DIR" ]; then
 fi
 
 export GOPATH="$DATA_DIR/go"
-export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:~/.bun/bin
+export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:~/.bun/bin:$HOME/Apps/android-studio-sdk/flutter-stable/bin
 export MANPAGER='nvim +Man!'
 
 # make sure if command is exists
-(($+commands[fzf])) && source <(fzf --zsh)
-(($+commands[zoxide])) && eval "$(zoxide init zsh)"
-(($+commands[oh-my-posh])) && eval "$(oh-my-posh init zsh --config $HOME/.omp.json)"
+(($+commands[fzf])) && source <(fzf --zsh) || true
+(($+commands[zoxide])) && eval "$(zoxide init zsh)" || true
+(($+commands[oh-my-posh])) && eval "$(oh-my-posh init zsh --config $HOME/.omp.json)" || true
 
 # load functions and aliases
-[ -x "$HOME/.functions.sh" ] && source "$HOME/.functions.sh"
-[ -x "$HOME/.aliases.sh" ] && source "$HOME/.aliases.sh"
-[ -d "$HOME/.v" ] && source "$HOME/.v/bin/activate"
-
+[ -x "$HOME/.functions.sh" ] && source "$HOME/.functions.sh" || true
+[ -x "$HOME/.aliases.sh" ] && source "$HOME/.aliases.sh" || true
+[ -d "$HOME/.v" ] && source "$HOME/.v/bin/activate" || true
