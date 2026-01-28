@@ -1,0 +1,24 @@
+key "Super+E" nautilus
+key "Super+Q" icesh -f close
+key "Super+Enter" kitty
+key "Super+Space" j4-dmenu-desktop
+
+key "XF86AudioRaiseVolume" pactl set-sink-volume 0 +4%
+key "XF86AudioLowerVolume" pactl set-sink-volume 0 -4%
+key "XF86MonBrightnessUp" brightnessctl -d intel_backlight set +5%
+key "XF86MonBrightnessDown" brightnessctl -d intel_backlight set 5%-
+
+key "Super+R" icesh restart
+
+key "Super+J" icesh goto prev
+key "Super+K" icesh goto next
+
+key "Super+1" icesh goto 0
+key "Super+2" icesh goto 1
+key "Super+3" icesh goto 2
+key "Super+4" icesh goto 3
+
+key "Alt+1" icesh -f setWorkspace 0
+key "Alt+2" icesh -f setWorkspace 1
+key "Alt+3" icesh -f setWorkspace 2
+key "Alt+4" icesh -f setWorkspace 3

@@ -168,4 +168,5 @@ binds {
     Mod+Shift+S     { screenshot; }
     Mod+Shift+A     { screenshot-screen; }
     Mod+Ctrl+S      { screenshot-window write-to-disk=false; }
+    Mod+Shift+R     { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle"; }
 }

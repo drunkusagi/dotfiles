@@ -1,4 +1,6 @@
 environment {
+    LIBVA_DRIVER_NAME                   "iHD"
+    VDPAU_DRIVER                        "va_gl"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     _JAVA_AWT_WM_NONREPARENTING         "1"
     TERMINAL                            "alacritty"

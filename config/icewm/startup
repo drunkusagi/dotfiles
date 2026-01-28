@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[ -r ~/.Xresources ] && xrdb ~/.Xresources
+
+feh --bg-fill ~/.wallpaper.jpg &
+
+setxkbmap us &
+
+picom -b
+
+#volumeicon &
+
+# exec icewm-session
