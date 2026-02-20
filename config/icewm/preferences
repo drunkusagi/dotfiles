@@ -1,4 +1,40 @@
-ShowTaskBar=1
+# Window Focus & Behavior
+ClickToFocus = 1
+RaiseOnFocus = 1
+FocusOnMap = 1
+SizeMaximized = 1
+LimitPosition = 1
+DelayPointerFocus = 0
+
+# Window Movement & Snapping
+OpaqueMove = 1
+OpaqueResize = 0
+SmartPlacement = 1
+SnapMove = 1
+SnapDistance = 10
+
+# Performance & Visuals
+DoubleBuffer = 1
+MenuMouseTracking = 0
+ShowMenuIcons = 1
+SubmenuMenuActivateDelay = 150
+
+# Taskbar & System Monitors
+TaskBarShowCPUStatus = 0
+TaskBarShowMEMStatus = 0
+TaskBarShowNetStatus = 0
+TaskBarShowAPMStatus = 1
+TaskBarShowClock = 1
+TaskBarShowWorkspaces = 1
+TaskBarShowWindowIcons = 1
+TaskBarShowTray = 1
+
+# Alt+Tab Switcher
+QuickSwitch = 1
+QuickSwitchPreview = 0
+QuickSwitchVertical = 1
+QuickSwitchIconSize = 32
+
 TaskBarShowCPUStatus=0
 TaskBarShowMEMStatus=0
 TaskBarShowNetStatus=0
@@ -10,12 +46,8 @@ ClockSeconds=0
 Clock="%I:%M %p"
 TimeFormat="%I:%M %p"
 
+MouseWinMove="Alt+Pointer_Button1"
 MouseWinMove="Super+Pointer_Button1"
 MouseWinRaise="Super+Pointer_Button1"
 MouseWinResize="Alt+Pointer_Button3"
 
-ShowTitleBar=0
-BorderSizeX=0
-BorderSizeY=0
-CornerSizeX=0
-CornerSizeY=0

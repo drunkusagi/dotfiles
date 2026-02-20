@@ -77,7 +77,8 @@ stasis:
   on_ac:
     brightness:
       timeout 300 # 5 minute(s)
-      command "brightnessctl set 50%"
+      command "brightnessctl -s set 10%"
+      resume-command "brightnessctl -r"
     end
 
     dpms:
@@ -101,7 +102,8 @@ stasis:
   on_battery:
     brightness:
       timeout 60 # 1 minute(s)
-      command "brightnessctl set 30%"
+      command "brightnessctl -s set 10%"
+      resume-command "brightnessctl -r"
     end
 
     dpms:

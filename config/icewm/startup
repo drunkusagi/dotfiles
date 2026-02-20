@@ -1,13 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
-[ -r ~/.Xresources ] && xrdb ~/.Xresources
+# wallpaper
+feh --bg-fill ~/.wallpaper.jpg
 
-feh --bg-fill ~/.wallpaper.jpg &
+# keyboard
+setxkbmap us
 
-setxkbmap us &
-
+# x11 compositor
 picom -b
 
-#volumeicon &
+# clipboard history
+clipcatd &
 
-# exec icewm-session
+SCRIPTS="$HOME/.config/icewm/scripts"
+
+. "$SCRIPTS/xidlehook.sh"

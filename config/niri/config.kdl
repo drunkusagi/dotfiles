@@ -2,9 +2,11 @@ environment {
     LIBVA_DRIVER_NAME                   "iHD"
     VDPAU_DRIVER                        "va_gl"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    ELECTRON_OZONE_PLATFORM_HINT        "auto"
+    GTK_IM_MODULE                       "simple"
     _JAVA_AWT_WM_NONREPARENTING         "1"
     TERMINAL                            "alacritty"
-    EDITOR                              "nvim"
+    EDITOR                              "zed"
 }
 
 include "layout.kdl"
@@ -17,10 +19,8 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot %Y-%m-%d %H-%M-%S.png"
 
 output "eDP-1" {
-  mode "1920x1080@60.008"
+  mode "1920x1080@60"
   scale 1.2
-  transform "normal"
-  position x=1280 y=0
 }
 
 hotkey-overlay {
@@ -42,7 +42,7 @@ gestures {
 }
 
 overview {
-  // backdrop-color "#26233a"
+  backdrop-color "#26233a"
   workspace-shadow {
     off
   }

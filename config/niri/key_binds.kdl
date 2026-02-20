@@ -11,8 +11,8 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "-n1" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+3%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "-n1" "3%-"; }
 
     Mod+I repeat=false { toggle-overview; }
 
@@ -116,7 +116,7 @@ binds {
     Mod+BracketRight { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    // Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     // Mod+Period { expel-window-from-column; }
 
@@ -142,9 +142,9 @@ binds {
     Mod+Shift+Minus { set-window-height "-5%"; }
     Mod+Shift+Equal { set-window-height "+5%"; }
 
-    // Move the focused window between the floating and the tiling layout.
     Mod+S       { toggle-window-floating; }
-    Mod+A       { switch-focus-between-floating-and-tiling; }
+    Mod+A       { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Z       { switch-focus-between-floating-and-tiling; }
 
     // Mod+W { toggle-column-tabbed-display; }
 
@@ -155,15 +155,15 @@ binds {
 
     Mod+Shift+P { power-off-monitors; }
 
-    Mod+Space       { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+Period      { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
-    // Mod+V           { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+V           { spawn-sh "cliphist list | fuzzel -d --prompt=': ' | cliphist decode | wl-copy"; }
+    Mod+Space       { spawn-sh "qs -c noctalia-shell ipc call launcher toggle || fuzzel"; }
+    Mod+Period      { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
+    Mod+Comma       { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Mod+V           { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard || cliphist list | fuzzel -d --prompt=': ' | cliphist decode | wl-copy"; }
     Alt+L           { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Backspace   { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
     Mod+E           { spawn "thunar"; }
-    Mod+Z           { spawn "~/.config/niri/scripts/audio_dev_switcher.sh"; }
+    Mod+Shift+V     { spawn "~/.config/niri/scripts/audio_dev_switcher.sh"; }
     Mod+Return      { spawn "alacritty"; }
     Mod+Shift+S     { screenshot; }
     Mod+Shift+A     { screenshot-screen; }

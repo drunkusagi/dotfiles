@@ -8,7 +8,7 @@ layout {
 
     background-color "transparent"
 
-    // center-focused-column "always"
+    center-focused-column "always"
 
     preset-column-widths {
         proportion 0.35
