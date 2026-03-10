@@ -1,7 +1,7 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.04+ -l 1.0"; }
+    XF86AudioRaiseVolume allow-when-locked=true  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.04+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.04-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
@@ -18,12 +18,18 @@ binds {
 
     Mod+Q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+J     { focus-column-left; }
-    Mod+K     { focus-column-right; }
+    Mod+Alt+H     { focus-column-left; }
+    Mod+Alt+J     { focus-window-down; }
+    Mod+Alt+K     { focus-window-up; }
+    Mod+Alt+L     { focus-column-right; }
+
+    Mod+Left      { focus-column-left; }
+    Mod+Down      { focus-window-down; }
+    Mod+Up        { focus-window-up; }
+    Mod+Right     { focus-column-right; }
+
+    Mod+J         { focus-column-left; }
+    Mod+K         { focus-column-right; }
     // focus-window-down focus-window-up
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -143,7 +149,7 @@ binds {
     Mod+Shift+Equal { set-window-height "+5%"; }
 
     Mod+S       { toggle-window-floating; }
-    Mod+A       { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+A       hotkey-overlay-title="Toggle control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Z       { switch-focus-between-floating-and-tiling; }
 
     // Mod+W { toggle-column-tabbed-display; }
@@ -151,22 +157,22 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Mod+Shift+Q { quit; }
-    Ctrl+Alt+Delete { quit; }
+    // Ctrl+Alt+Delete { quit; }
 
     Mod+Shift+P { power-off-monitors; }
 
-    Mod+Space       { spawn-sh "qs -c noctalia-shell ipc call launcher toggle || fuzzel"; }
-    Mod+Period      { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
-    Mod+Comma       { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
-    Mod+V           { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard || cliphist list | fuzzel -d --prompt=': ' | cliphist decode | wl-copy"; }
-    Alt+L           { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Backspace   { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Space       hotkey-overlay-title="Open app launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle || fuzzel"; }
+    Mod+Period      hotkey-overlay-title="Open emoji picker" { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
+    Mod+Comma       hotkey-overlay-title="Open settings" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Mod+V           hotkey-overlay-title="Open clipboard history" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard || cliphist list | fuzzel -d --prompt=': ' | cliphist decode | wl-copy"; }
+    Alt+L           hotkey-overlay-title="Lock screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Backspace   hotkey-overlay-title="Open session menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
-    Mod+E           { spawn "thunar"; }
-    Mod+Shift+V     { spawn "~/.config/niri/scripts/audio_dev_switcher.sh"; }
-    Mod+Return      { spawn "alacritty"; }
+    Mod+E           hotkey-overlay-title="Open file manager (Thunar)" { spawn "thunar"; }
+    Mod+Shift+V     hotkey-overlay-title="Switch audio device" { spawn "~/.config/niri/scripts/audio_dev_switcher.sh"; }
+    Mod+Return      hotkey-overlay-title="Open terminal (Alacritty)" { spawn "alacritty"; }
     Mod+Shift+S     { screenshot; }
     Mod+Shift+A     { screenshot-screen; }
     Mod+Ctrl+S      { screenshot-window write-to-disk=false; }
-    Mod+Shift+R     { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle"; }
+    Mod+Shift+R hotkey-overlay-title="Start screen recorder" { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle"; }
 }
