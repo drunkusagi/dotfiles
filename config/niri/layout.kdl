@@ -3,12 +3,12 @@ layout {
 
     struts {
       top -1
-      bottom 2.5
+      bottom 1.2
     }
 
     background-color "transparent"
 
-    center-focused-column "always"
+    center-focused-column "never"
 
     preset-column-widths {
         proportion 0.35
