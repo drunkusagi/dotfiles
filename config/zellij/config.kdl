@@ -2,48 +2,6 @@ env {
   EDITOR "nvim"
 }
 
-theme "catppuccin-mocha"
-
-keybinds {
-    locked {
-        bind "Ctrl q" { SwitchToMode "Normal"; }
-        bind "Ctrl m" { Quit; }
-    }
-
-    shared_except "locked" {
-        bind "Ctrl q" { SwitchToMode "Locked"; }
-    }
-
-    normal {
-        bind "Alt t" { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "Alt y" { SwitchToMode "RenamePane"; PaneNameInput 0; }
-        bind "Alt s" {
-            LaunchOrFocusPlugin "zellij:session-manager" {
-                floating true
-                move_to_focused_pane true
-            };
-            SwitchToMode "Normal";
-        }
-    }
-}
-
-plugins {
-    tab-bar location="zellij:tab-bar"
-    status-bar location="zellij:status-bar"
-    strider location="zellij:strider"
-    compact-bar location="zellij:compact-bar"
-    session-manager location="zellij:session-manager"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
-    filepicker location="zellij:strider" {
-        cwd "/"
-    }
-    configuration location="zellij:configuration"
-    plugin-manager location="zellij:plugin-manager"
-    about location="zellij:about"
-}
-
 ui {
   pane_frames {
     rounded_corners false
@@ -51,7 +9,58 @@ ui {
   }
 }
 
-load_plugins {}
+theme "catppuccin-mocha"
+
+keybinds {
+    unbind "Ctrl s"
+    unbind "Ctrl g"
+
+    search {
+        unbind "u"
+        unbind "d"
+
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "Ctrl d" { PageScrollDown; }
+        bind "Ctrl u" { PageScrollUp; }
+        bind "n" { Search "down"; }
+        bind "N" { Search "up"; }
+        bind "s" "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+
+        bind "Esc" "Alt a" { SwitchToMode "Normal"; }
+    }
+
+    locked {
+        bind "Ctrl q" { SwitchToMode "Normal"; }
+        bind "Ctrl m" { Quit; }
+    }
+
+    shared_except "locked" {
+        bind "Ctrl q" { SwitchToMode "Locked"; }
+        bind "Alt a" { SwitchToMode "Search"; }
+    }
+
+    normal {
+        bind "Alt t" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Alt r" { SwitchToMode "RenamePane"; PaneNameInput 0; }
+        bind "Alt s" {
+          LaunchPlugin "zellij:session-manager" {
+            floating true
+            move_to_focused_pane true
+          };
+
+          SwitchToMode "Normal";
+        }
+    }
+
+    renametab {
+      bind "Esc" { SwitchToMode "Normal"; }
+    }
+
+    renamepane {
+      bind "Esc" { SwitchToMode "Normal"; }
+    }
+}
 
 on_force_close "detach"
 simplified_ui true
