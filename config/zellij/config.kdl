@@ -1,0 +1,86 @@
+env {
+  EDITOR "nvim"
+}
+
+theme "catppuccin-mocha"
+
+keybinds {
+    locked {
+        bind "Ctrl q" { SwitchToMode "Normal"; }
+        bind "Ctrl m" { Quit; }
+    }
+
+    shared_except "locked" {
+        bind "Ctrl q" { SwitchToMode "Locked"; }
+    }
+
+    normal {
+        bind "Alt t" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Alt y" { SwitchToMode "RenamePane"; PaneNameInput 0; }
+        bind "Alt s" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_pane true
+            };
+            SwitchToMode "Normal";
+        }
+    }
+}
+
+plugins {
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
+    configuration location="zellij:configuration"
+    plugin-manager location="zellij:plugin-manager"
+    about location="zellij:about"
+}
+
+ui {
+  pane_frames {
+    rounded_corners false
+    hide_session_name false
+  }
+}
+
+load_plugins {}
+
+on_force_close "detach"
+simplified_ui true
+default_cwd "~"
+pane_frames true
+auto_layout true
+session_serialization true
+serialize_pane_viewport false
+scrollback_lines_to_serialize 10000
+default_layout "compact"
+default_mode "normal"
+mouse_mode false
+scroll_buffer_size 10000
+copy_clipboard "system"
+copy_on_select true
+mirror_session false
+styled_underlines true
+disable_session_metadata false
+stacked_resize true
+advanced_mouse_actions true
+web_server false
+web_sharing "disabled"
+web_client {
+  font "monospace"
+}
+// web_server_ip "127.0.0.1"
+// web_server_port 8082
+// web_server_cert "/path/to/my/cert.pem"
+// web_server_key "/path/to/my/key.pem"
+// enforce_https_for_localhost true
+
+
