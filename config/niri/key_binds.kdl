@@ -18,10 +18,10 @@ binds {
 
     Mod+Q repeat=false { close-window; }
 
-    Mod+Alt+H     { focus-column-left; }
-    Mod+Alt+J     { focus-window-down; }
-    Mod+Alt+K     { focus-window-up; }
-    Mod+Alt+L     { focus-column-right; }
+    // Mod+Alt+H     { focus-column-left; }
+    // Mod+Alt+J     { focus-window-down; }
+    // Mod+Alt+K     { focus-window-up; }
+    // Mod+Alt+L     { focus-column-right; }
 
     Mod+Left      { focus-column-left; }
     Mod+Down      { focus-window-down; }
@@ -30,6 +30,8 @@ binds {
 
     Mod+J         { focus-column-left; }
     Mod+K         { focus-column-right; }
+    Mod+H         { focus-column-left; }
+    Mod+L         { focus-column-right; }
     // focus-window-down focus-window-up
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -104,7 +106,7 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    
+
     // move active column or window to other workspace
     Alt+1 { move-column-to-workspace 1; }
     Alt+2 { move-column-to-workspace 2; }
@@ -127,8 +129,8 @@ binds {
     // Mod+Period { expel-window-from-column; }
 
     Mod+W         { switch-preset-column-width; }
-    Mod+Shift+W   { switch-preset-window-height; }
-    Mod+Ctrl+W    { reset-window-height; }
+    Mod+Ctrl+W   { switch-preset-window-height; }
+    Mod+Ctrl+Q    { reset-window-height; }
     Mod+F         { maximize-column; }
     Mod+Shift+F   { fullscreen-window; }
 
@@ -165,14 +167,15 @@ binds {
     Mod+Period      hotkey-overlay-title="Open emoji picker" { spawn-sh "qs -c noctalia-shell ipc call launcher emoji"; }
     Mod+Comma       hotkey-overlay-title="Open settings" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Mod+V           hotkey-overlay-title="Open clipboard history" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard || cliphist list | fuzzel -d --prompt=': ' | cliphist decode | wl-copy"; }
-    Alt+L           hotkey-overlay-title="Lock screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Backspace   hotkey-overlay-title="Open session menu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
-    Mod+E           hotkey-overlay-title="Open file manager (Thunar)" { spawn "thunar"; }
+    Mod+E           hotkey-overlay-title="Open file manager (Nautilus)" { spawn "nautilus"; }
     Mod+Shift+V     hotkey-overlay-title="Switch audio device" { spawn "~/.config/niri/scripts/audio_dev_switcher.sh"; }
     Mod+Return      hotkey-overlay-title="Open terminal (Alacritty)" { spawn "alacritty"; }
-    Mod+Shift+S     { screenshot; }
-    Mod+Shift+A     { screenshot-screen; }
-    Mod+Ctrl+S      { screenshot-window write-to-disk=false; }
+    Mod+Shift+A     { screenshot; }
+    Mod+Shift+S     { screenshot-screen; }
+    Mod+Shift+W     { screenshot-window; }
+    Mod+Alt+W      { screenshot-window write-to-disk=false; }
+    Mod+Alt+S      { screenshot-screen write-to-disk=false; }
     Mod+Shift+R hotkey-overlay-title="Start screen recorder" { spawn-sh "qs -c noctalia-shell ipc call plugin:screen-recorder toggle"; }
 }
