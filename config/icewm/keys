@@ -5,8 +5,8 @@ key "Super+Space" j4-dmenu-desktop
 key "Super+X" j4-dmenu-desktop
 key "Super+Shift+S" sh -c "maim -s | xclip -selection clipboard -t image/png"
 
-key "XF86AudioRaiseVolume" pactl set-sink-volume 0 +4%
-key "XF86AudioLowerVolume" pactl set-sink-volume 0 -4%
+key "XF86AudioRaiseVolume" pactl set-sink-volume 0 +3%
+key "XF86AudioLowerVolume" pactl set-sink-volume 0 -3%
 key "XF86MonBrightnessUp" brightnessctl -d intel_backlight set +3%
 key "XF86MonBrightnessDown" brightnessctl -d intel_backlight set -n1 3%-
 

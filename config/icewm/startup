@@ -12,6 +12,8 @@ picom -b
 # clipboard history
 clipcatd &
 
+volumeicon &
+
 SCRIPTS="$HOME/.config/icewm/scripts"
 
 . "$SCRIPTS/xidlehook.sh"
