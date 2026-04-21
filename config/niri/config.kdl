@@ -2,6 +2,7 @@ environment {
     LIBVA_DRIVER_NAME                   "iHD"
     VDPAU_DRIVER                        "va_gl"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORMTHEME                "gtk3"
     ELECTRON_OZONE_PLATFORM_HINT        "auto"
     GTK_IM_MODULE                       "simple"
     _JAVA_AWT_WM_NONREPARENTING         "1"
@@ -48,3 +49,12 @@ overview {
     off
   }
 }
+
+blur {
+  passes 3        // more passes = stronger blur (default: 3)
+  offset 1.7      // sample distance per pass (default: 3.0)
+  noise 0.017     // grain overlay (default: 0.02)
+  saturation 1.5  // color saturation boost (default: 1.5)
+}
+
+include "./noctalia.kdl"

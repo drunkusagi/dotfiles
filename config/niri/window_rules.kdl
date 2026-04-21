@@ -3,6 +3,11 @@ window-rule {
   geometry-corner-radius 7
   draw-border-with-background false
   clip-to-geometry true
+
+  background-effect {
+    blur false
+    xray false
+  }
 }
 
 window-rule {
