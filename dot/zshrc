@@ -45,7 +45,7 @@ if (( $+commands[zellij] )) && [[ -z "$ZELLIJ" && -z "$NVIM" && -z "$VSCODE_NONC
 
     if [[ $gum_status -eq 0 ]]; then
       if [[ "$choice" == "no-zellij" ]]; then
-        return 0
+        true
       elif [[ "$choice" == layout:* ]]; then
         exec zellij --layout "${choice#layout:}"
       elif [[ "$choice" == resurrect:* ]]; then
