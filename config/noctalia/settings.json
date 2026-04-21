@@ -8,11 +8,13 @@
         "customLaunchPrefixEnabled": false,
         "density": "default",
         "enableClipPreview": true,
+        "enableClipboardChips": true,
         "enableClipboardHistory": true,
-        "enableSessionSearch": true,
-        "enableSettingsSearch": true,
-        "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "enableClipboardSmartIcons": true,
+        "enableSessionSearch": false,
+        "enableSettingsSearch": false,
+        "enableWindowsSearch": false,
+        "iconMode": "native",
         "ignoreMouseInput": false,
         "overviewLayer": false,
         "pinnedApps": [
@@ -33,44 +35,44 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "useApp2Unit": false,
         "viewMode": "grid"
     },
     "audio": {
-        "cavaFrameRate": 30,
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
+        "spectrumFrameRate": 30,
+        "spectrumMirrored": true,
         "visualizerType": "none",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
-        "volumeStep": 3
+        "volumeStep": 1
     },
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.9,
+        "backgroundOpacity": 0.6,
         "barType": "floating",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 1,
-        "contentPadding": 4,
+        "capsuleOpacity": 0.65,
+        "contentPadding": 2,
         "density": "default",
         "displayMode": "always_visible",
-        "floating": true,
+        "enableExclusionZoneInset": true,
         "fontScale": 1,
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
-        "marginHorizontal": 145,
+        "marginHorizontal": 140,
         "marginVertical": 3,
-        "middleClickAction": "none",
+        "middleClickAction": "settings",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
         "monitors": [
             "eDP-1"
         ],
-        "mouseWheelAction": "workspace",
+        "mouseWheelAction": "content",
         "mouseWheelWrap": true,
         "outerCorners": false,
         "position": "bottom",
@@ -84,7 +86,7 @@
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": true,
-        "widgetSpacing": 6,
+        "widgetSpacing": 3,
         "widgets": {
             "center": [
                 {
@@ -105,7 +107,7 @@
                 },
                 {
                     "id": "Spacer",
-                    "width": 10
+                    "width": 50
                 }
             ],
             "left": [
@@ -113,9 +115,10 @@
                     "characterCount": 2,
                     "colorizeIcons": false,
                     "emptyColor": "secondary",
-                    "enableScrollWheel": false,
+                    "enableScrollWheel": true,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
+                    "fontWeight": "bold",
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "iconScale": 0.7,
@@ -124,34 +127,10 @@
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
                     "showApplications": false,
+                    "showApplicationsHover": false,
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": false,
                     "unfocusedIconsOpacity": 1
-                },
-                {
-                    "commandPrefix": "auto-tile",
-                    "defaultSettings": {
-                        "debounceMs": 300,
-                        "enabled": true,
-                        "maxEventsPerSecond": 20,
-                        "maxVisible": 4,
-                        "onlyAtMax": true,
-                        "perWorkspace": false,
-                        "workspaceMaxVisible": {
-                        }
-                    },
-                    "id": "plugin:niri-auto-tile"
-                },
-                {
-                    "defaultSettings": {
-                        "activeColor": "primary",
-                        "enableToast": true,
-                        "hideInactive": false,
-                        "iconSpacing": 4,
-                        "inactiveColor": "none",
-                        "removeMargins": false
-                    },
-                    "id": "plugin:privacy-indicator"
                 },
                 {
                     "defaultSettings": {
@@ -159,18 +138,47 @@
                         "audioSource": "default_output",
                         "colorRange": "limited",
                         "copyToClipboard": false,
+                        "customReplayDuration": "30",
                         "directory": "",
                         "filenamePattern": "recording_yyyyMMdd_HHmmss",
                         "frameRate": "60",
                         "hideInactive": false,
                         "iconColor": "none",
                         "quality": "very_high",
+                        "replayDuration": "30",
+                        "replayEnabled": false,
+                        "replayStorage": "ram",
                         "resolution": "original",
+                        "restorePortalSession": false,
                         "showCursor": true,
                         "videoCodec": "h264",
                         "videoSource": "portal"
                     },
                     "id": "plugin:screen-recorder"
+                },
+                {
+                    "defaultSettings": {
+                        "debounceMs": 300,
+                        "enabled": true,
+                        "language": "auto",
+                        "maxEventsPerSecond": 20,
+                        "maxVisible": 4,
+                        "perWorkspace": false,
+                        "workspaceMaxVisible": {
+                        }
+                    },
+                    "id": "plugin:niri-auto-tile"
+                },
+                {
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
+                    "id": "ActiveWindow",
+                    "maxWidth": 250,
+                    "scrollingMode": "hover",
+                    "showIcon": true,
+                    "showText": true,
+                    "textColor": "none",
+                    "useFixedWidth": true
                 }
             ],
             "right": [
@@ -183,9 +191,13 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
-                        "Discord",
                         "Heroic",
-                        "Stoat for Desktop"
+                        "Stoat for Desktop",
+                        "OBS Studio",
+                        "steam",
+                        "DL speed: 3.1 MiB/s\nUP speed: 0 B/s",
+                        "DL speed: 0 B/s\nUP speed: 0 B/s",
+                        "Discord"
                     ]
                 },
                 {
@@ -231,11 +243,25 @@
                 {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "defaultSettings": {
+                        "catColor": "default",
+                        "catOffsetY": 0,
+                        "catSize": 1,
+                        "idleTimeout": 150,
+                        "raveMode": false,
+                        "tappyMode": false,
+                        "useMprisFilter": false,
+                        "waitingTimeout": 30000
+                    },
+                    "id": "plugin:slowbongo"
                 }
             ]
         }
@@ -258,7 +284,7 @@
                 "id": "calendar-month-card"
             },
             {
-                "enabled": false,
+                "enabled": true,
                 "id": "weather-card"
             }
         ]
@@ -270,7 +296,8 @@
         "manualSunset": "18:30",
         "monitorForColors": "",
         "predefinedScheme": "Catppuccin Lavender",
-        "schedulingMode": "location",
+        "schedulingMode": "off",
+        "syncGsettings": true,
         "useWallpaperColors": true
     },
     "controlCenter": {
@@ -296,7 +323,7 @@
                 "id": "weather-card"
             },
             {
-                "enabled": false,
+                "enabled": true,
                 "id": "media-sysmon-card"
             }
         ],
@@ -333,14 +360,36 @@
     "desktopWidgets": {
         "enabled": false,
         "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
             {
                 "name": "eDP-1",
                 "widgets": [
+                    {
+                        "clockColor": "none",
+                        "clockStyle": "minimal",
+                        "customFont": "JetBrainsMonoNL NF SemiBold",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 2.432204273967346,
+                        "showBackground": true,
+                        "useCustomFont": true,
+                        "x": 25,
+                        "y": 25
+                    },
+                    {
+                        "id": "Weather",
+                        "roundedCorners": true,
+                        "scale": 1.0416666666666667,
+                        "showBackground": true,
+                        "x": 375,
+                        "y": 25
+                    }
                 ]
             }
         ],
-        "overviewEnabled": true
+        "overviewEnabled": false
     },
     "dock": {
         "animationSpeed": 1,
@@ -359,8 +408,10 @@
         "indicatorColor": "primary",
         "indicatorOpacity": 0.6,
         "indicatorThickness": 3,
+        "launcherIcon": "",
         "launcherIconColor": "none",
         "launcherPosition": "end",
+        "launcherUseDistroLogo": false,
         "monitors": [
         ],
         "onlySameOutput": true,
@@ -381,8 +432,8 @@
         "autoStartAuth": false,
         "avatarImage": "~/.face",
         "boxRadiusRatio": 1,
-        "clockFormat": "hh\\nmm",
-        "clockStyle": "custom",
+        "clockFormat": "h:mm AP ",
+        "clockStyle": "analog",
         "compactLockScreen": true,
         "dimmerOpacity": 0,
         "enableBlurBehind": true,
@@ -418,12 +469,12 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
-        "lockScreenBlur": 0.55,
+        "lockScreenBlur": 0.65,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
-        "lockScreenTint": 0.15,
-        "passwordChars": false,
+        "lockScreenTint": 0.35000000000000003,
+        "passwordChars": true,
         "radiusRatio": 0.5,
         "reverseScroll": false,
         "scaleRatio": 0.9,
@@ -435,9 +486,11 @@
         "showHibernateOnLockScreen": true,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": true,
+        "smoothScrollEnabled": true,
         "telemetryEnabled": false
     },
     "hooks": {
+        "colorGeneration": "",
         "darkModeChange": "",
         "enabled": false,
         "performanceModeDisabled": "",
@@ -460,33 +513,33 @@
         "screenOffCommand": "",
         "screenOffTimeout": 600,
         "suspendCommand": "",
-        "suspendTimeout": 1800
+        "suspendTimeout": 2000
     },
     "location": {
-        "analogClockInCalendar": false,
+        "analogClockInCalendar": true,
+        "autoLocate": false,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
         "name": "Purwokerto",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
-        "showWeekNumberInCalendar": false,
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": true,
         "useFahrenheit": false,
-        "weatherEnabled": false,
-        "weatherShowEffects": true
+        "weatherEnabled": true,
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": true
     },
     "network": {
-        "airplaneModeEnabled": false,
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,
-        "networkPanelView": "wifi",
-        "wifiDetailsViewMode": "grid",
-        "wifiEnabled": false
+        "networkPanelView": "ethernet",
+        "wifiDetailsViewMode": "grid"
     },
     "nightLight": {
         "autoSchedule": true,
@@ -496,6 +549,10 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "nightTemp": "5808"
+    },
+    "noctaliaPerformance": {
+        "disableDesktopWidgets": true,
+        "disableWallpaper": false
     },
     "notifications": {
         "backgroundOpacity": 1,
@@ -544,7 +601,8 @@
         "overlayLayer": true
     },
     "plugins": {
-        "autoUpdate": true
+        "autoUpdate": true,
+        "notifyUpdates": true
     },
     "sessionMenu": {
         "countdownDuration": 5000,
@@ -599,21 +657,21 @@
                 "action": "userspaceReboot",
                 "command": "",
                 "countdownEnabled": true,
-                "enabled": false,
-                "keybind": ""
+                "enabled": true,
+                "keybind": "7"
             },
             {
                 "action": "rebootToUefi",
                 "command": "",
                 "countdownEnabled": true,
                 "enabled": true,
-                "keybind": ""
+                "keybind": "8"
             }
         ],
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 56,
+    "settingsVersion": 59,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -639,202 +697,48 @@
     },
     "templates": {
         "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "niri"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "zed"
+            }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": false,
         "fontDefault": "ZedMono NFM Medium",
-        "fontDefaultScale": 1,
+        "fontDefaultScale": 1.05,
         "fontFixed": "ZedMono NFM Medium",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.9500000000000001,
         "panelsAttachedToBar": false,
+        "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
-        "tooltipsEnabled": true
+        "tooltipsEnabled": true,
+        "translucentWidgets": false
     },
     "wallpaper": {
         "automationEnabled": false,
         "directory": "/var/lib/yura/Pictures",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
-        "favorites": [
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#bdc2ff",
-                    "#c4c4dd",
-                    "#e7b9d5",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/pixiv/illust_110683913_20250812_091721.png",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#ffb874",
-                    "#e2c0a4",
-                    "#c1cc99",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/pixiv/temp/126336940_7198717_スケブ納品物272_126336940_7198717_スケブ納品物272_p0.png",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#ccbeff",
-                    "#cac3dc",
-                    "#eeb8ca",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/Wallpapers/1180275.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#ffb3b0",
-                    "#e7bdba",
-                    "#e3c28c",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/「Gochuumon ha Usagi desu ka _ BLOOM」 OP&ED Illust Card/003_002.png",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#cbcc57",
-                    "#cac8a5",
-                    "#a4d0bd",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/Any/Rin_Shima_The_Rust_Programming_Language_3.png",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#c2c1ff",
-                    "#c6c4dd",
-                    "#e9b9d2",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_gpzq8l.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "content",
-                "paletteColors": [
-                    "#96cbff",
-                    "#b4c9e0",
-                    "#ebb3f6",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_zyq12y.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "fruit-salad",
-                "paletteColors": [
-                    "#60d4fe",
-                    "#89d0ee",
-                    "#b8c4ff",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_zy1dzg.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#c2c1ff",
-                    "#c6c4dd",
-                    "#e9b9d2",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_pol619.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#ffb4a8",
-                    "#e7bdb6",
-                    "#dec38c",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_1p2kr3.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#b6c4ff",
-                    "#c2c5dd",
-                    "#e3bada",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/wallhaven_exwyor.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#acc7ff",
-                    "#bec6dc",
-                    "#ddbce0",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/Wallpapers/frieren-sousou-no-frieren-anime-4k-wallpaper-uhdpaper.com-600@1@n.jpg",
-                "useWallpaperColors": true
-            },
-            {
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": true,
-                "generationMethod": "rainbow",
-                "paletteColors": [
-                    "#ffb2bf",
-                    "#e4bdc2",
-                    "#ebbe90",
-                    "#ffb4ab"
-                ],
-                "path": "/var/lib/yura/Pictures/Yande.re/yande.re 856312 jeruka_(otot9181) love_live!_(series) love_live!_nijigasaki_gakuen_school_idol_doukoukai miyashita_ai seifuku sweater tennouji_rina yuri.png",
-                "useWallpaperColors": true
-            }
-        ],
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
-        "monitorDirectories": [
-        ],
+        "linkLightAndDarkWallpapers": true,
         "overviewBlur": 0.4,
         "overviewEnabled": false,
         "overviewTint": 0.6,
@@ -843,11 +747,14 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": false,
-        "solidColor": "#1a1a2e",
+        "solidColor": "#fff1c8",
         "sortOrder": "date_desc",
         "transitionDuration": 700,
         "transitionEdgeSmoothness": 0.05,
-        "transitionType": "fade",
+        "transitionType": [
+            "fade"
+        ],
+        "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
         "viewMode": "browse",
