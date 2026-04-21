@@ -28,7 +28,6 @@ news.version=3.4.2
 color.overdue=bold white on red
 color.due.today=bold underline red
 color.due.tomorrow=bold yellow
-color.due.tomorrow=bold yellow
 color.alternate=on gray2
 
 color.label=cyan
